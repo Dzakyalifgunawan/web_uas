@@ -73,6 +73,11 @@ header {
     color: white;
 }
 
+iframe {
+    border: solid white;
+    border-radius: 20px;
+}
+
 .section3 {
     background-color: darkorange;
     color: white;
@@ -102,4 +107,11 @@ footer a {
 
 footer a:active {
     transition: all .10s ease-in-out;
+}
+
+@media (max-width: 600px) {
+    iframe {
+        width: 420px;
+        height: 305px;
+    }
 }
