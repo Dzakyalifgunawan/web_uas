@@ -1,0 +1,105 @@
+.navbar {
+    background-color: darkgray;
+}
+
+.logo {
+    width: 60px;
+    mix-blend-mode: color;
+}
+
+.container-fluid h4 {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 3px 2px 1px grey;
+}
+
+.container-fluid h4 span {
+    color: white;
+    font-style: italic;
+}
+
+.col-md-3 h1 {
+    margin-top: 90px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: -4px 3px 3px grey;
+}
+
+.col-md-3 h1 span {
+    color: white;
+    font-style: italic;
+}
+
+header img {
+    border: solid darkorange;
+    border-radius: 20px;
+    box-shadow: -6px 5px 1px rgba(0,0,0,0.2);
+}
+
+header {
+    background-color: darkorange;
+    padding: 15px;
+}
+
+.col-md-9 a {
+    text-decoration: none;
+    color: black;
+}
+
+.col-md-9 a:active { 
+    transition: all .10s ease-in-out;
+}
+
+.section1  img {
+    border: solid darkorange;
+    border-radius: 20px;
+}
+
+
+.section2 {
+    text-align: right;
+    background-color: darkorange;
+    margin-top: 20px;
+    color: white;
+}
+
+.section2 img {
+    border: solid white;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.section2 a {
+    color: white;
+}
+
+.section3 {
+    background-color: darkorange;
+    color: white;
+}
+
+.col-md-2 img {
+    border:  solid grey;
+    margin-bottom: 10px;
+}
+
+.col-md-2 a {
+    text-decoration: none;
+    color: black;
+    margin-left: 50px;
+}
+
+footer {
+    padding: 5px;
+    background-color: darkgray;
+    color: white;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer a:active {
+    transition: all .10s ease-in-out;
+}
