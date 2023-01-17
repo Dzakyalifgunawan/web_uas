@@ -52,6 +52,7 @@ header {
 
 .col-md-9 a:active { 
     transition: all .10s ease-in-out;
+    color: aquamarine;
 }
 
 .section1  img {
