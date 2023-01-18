@@ -1,9 +1,45 @@
+// Sign In
+function ceklogin() {
+    const username = "Dzaky";
+    const password = "Dzaky";
+
+    let user = document.getElementById("user").value;
+    let pass = document.getElementById("pass").value;
+
+    if((user == username) && (pass == password)) {
+        alert("Username Benar");
+        clear();
+        window.location.href = "index.html";
+    }else {
+        alert("Username Salah");
+    }
+}
+
+if(document.getElementById("masuk")) {
+    document.getElementById("masuk").onclick = function() {
+        ceklogin();
+    } 
+}
+
+document.getElementById("reset").onclick = function() {
+    clear();
+}
+
+function clear() {
+    document.getElementById("user").value = "";
+    document.getElementById("pass").value = "";
+}
+
+// Sign Up
 function kodemember() {
     let a = "MB"
     let b = "001"
     let tanggal = new Date();
     let tglsekarang = tanggal.getFullYear();
-     document.getElementById("kode").value = a + tglsekarang + b;
+    document.getElementById("tampil").innerHTML = "Kode Member:" + a + tglsekarang + b;
+}
+
+document.getElementById("signup").onload = function() {
     let jenis = ["Laki - Laki", "Perempuan"];
     let jenisx = "";
 
@@ -11,10 +47,6 @@ function kodemember() {
         jenisx += '<input class="form-check-input" type="radio" name="jns" id="' + jenis[i] + '" />' + jenis[i] + "</br>";
     }
     document.getElementById("jns").innerHTML = jenisx;
-}
-
-document.getElementById("signup").onload = function() {
-    kodemember();
 }
 
 document.getElementById("tempat").onkeyup = function() {
@@ -29,26 +61,29 @@ document.getElementById("nama").onkeyup = function() {
     document.getElementById("nama").value = d;
 }
 
-function pekerjaan() {
-    let pekerjaan = document.getElementById("form").pekerjaan.value;
-    if(pekerjaan == "kuliah") {
-        document.getElementById("pekerjaanx").innerHTML = "Kuliah";
-    }else if(pekerjaan == "kerja") {
-        document.getElementById("pekerjaanx").innerHTML = "Kerja"
-    }else if(pekerjaan == "nganggur") {
-        document.getElementById("pekerjaanx").innerHTML = "Nganggur";
-    }
-}
+// function pekerjaan() {
+//     let pekerjaan = document.getElementById("form").value;
+//     let tampil = "";
+//     if(pekerjaan == "kuliah") {
+//         tampil = "Kuliah";
+//     }else if(pekerjaan == "kerja") {
+//        tampil = "Kerja";
+//     }else if(pekerjaan == "nganggur") {
+//         tampil = "Nganggur";
+//     }
+//     document.getElementById("pekerjaanx").innerHTML = tampil;
+// }
 
 document.getElementById("submit").onclick = function() {
-    let kode = document.getElementById("kode").value;
     let nama = document.getElementById("nama").value;
     let tempat = document.getElementById("tempat").value;
     let tanggal = document.getElementById("tanggal").value;
     let email = document.getElementById("email").value;
     let alamat = document.getElementById("alamat").value;
+    let pekerjaan = document.getElementById("pekerjaan").value;
 
-    pekerjaan();
+    kodemember();
+    // pekerjaan();
 
     let h;
 
@@ -57,16 +92,15 @@ document.getElementById("submit").onclick = function() {
     }else if (document.getElementById("Perempuan").checked == true) {
         h = "Perempuan";  
     }else{
-        h = document.getElementById("jenisx").innerHTML = "-";
-        h = alert("Operator Belum Diisi");
+        h = alert("Jenis Kelamin Belum diisi");
     };
 
-    document.getElementById("kodex").innerHTML = kode;
-    document.getElementById("namax").innerHTML = nama;
-    document.getElementById("lahirx").innerHTML = tempat + "," + tanggal;
-    document.getElementById("emailx").innerHTML = email;
-    document.getElementById("jenisx").innerHTML = h;
-    document.getElementById("alamatx").innerHTML = alamat;
+    
+    document.getElementById("tampil").innerHTML = nama;
+    document.getElementById("tampil").innerHTML = tempat + "," + tanggal;
+    document.getElementById("tampil").innerHTML = email;
+    document.getElementById("tampil").innerHTML = alamat;
+    document.getElementById("tampil").innerHTML = pekerjaan;
 }
 
 document.getElementById("pekerjaan").onchange = function () {
