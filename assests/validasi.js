@@ -21,8 +21,10 @@ if(document.getElementById("masuk")) {
     } 
 }
 
-document.getElementById("reset").onclick = function() {
-    clear();
+if(document.getElementById("hapus")){
+    document.getElementById("hapus").onclick = function() {
+        clear();
+    }    
 }
 
 function clear() {
@@ -93,14 +95,27 @@ document.getElementById("submit").onclick = function() {
         h = "Perempuan";  
     }else{
         h = alert("Jenis Kelamin Belum diisi");
-    };
+    }
 
+    if(nama == "" || nama == null) {
+        alert("Nama Belum Diisi");
+    }else if(tempat == "" || tempat == null) {
+        alert("Tempat Belum Diisi");
+    }else if(tanggal == "" || tanggal == null) {
+        alert("Tanggal Lahir Belum Diisi");
+    }else if(email == "" || email == null) {
+        alert("Email Belum Diisi");
+    }else if(pekerjaan == "" || pekerjaan == null) {
+        alert("Pekerjaan Belum Diisi");
+    }else if(alamat == "" || alamat == null) {
+        alert("Alamat Belum Diisi");
+    }
     
-    document.getElementById("tampil").innerHTML = nama;
-    document.getElementById("tampil").innerHTML = tempat + "," + tanggal;
-    document.getElementById("tampil").innerHTML = email;
-    document.getElementById("tampil").innerHTML = alamat;
-    document.getElementById("tampil").innerHTML = pekerjaan;
+    document.getElementById("tampil").innerHTML = "Nama: " + nama;
+    document.getElementById("tampil").innerHTML = "Tempat,Tanggal Lahir: " + tempat + "," + tanggal;
+    document.getElementById("tampil").innerHTML = "Email: " + email;
+    document.getElementById("tampil").innerHTML = "Alamat: " + alamat;
+    document.getElementById("tampil").innerHTML = "Pekerjaan: " + pekerjaan;
 }
 
 document.getElementById("pekerjaan").onchange = function () {
@@ -115,4 +130,5 @@ document.getElementById("pekerjaan").onchange = function () {
         k = "Nganggur Mulu Kapan Sukses"
     }
     document.getElementById("komen").value = k;
+    document.getElementById("tampil").innerHTML = "Komen: " + k;
 }
