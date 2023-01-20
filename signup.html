@@ -65,7 +65,7 @@
             </div>
         </div>
     </nav>
-    <form action="#" method="get">
+    <form action="#" method="get" id="form">
         <div class="container">
             <div class="row">
                 <div class="col-md-2"></div>
@@ -101,27 +101,58 @@
                     </div>
                     <div class="mb-3 row"> 
                         <label for="pekerjaan" class="col-sm-4 col-form-label">Pekerjaan</label> :
-                        <div class="col-sm-7">
+                        <div class="col-sm-7" id="pk">
                             <select id="pekerjaan" class="form-select">
-                                <option>Pilih</option>
+                                <option value="">Pilih</option>
                                 <option value="kuliah">Kuliah</option>
                                 <option value="kerja">Kerja</option>
                                 <option value="nganggur">Nganggur</option>
                             </select>
-                            <input type="text" class="form-control" id="komen" name="komen">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="alamat" class="col-sm-4 col-form-label">Alamat:</label> :
                         <div class="col-sm-7">
                             <textarea class="form-control" placeholder="Alamat" id="alamat" name="alamat"></textarea>
+                            <span id="karakter"></span>
                         </div>
                     </div>
                     <div class="d-grid gap-2 mb-4">
                         <button class="btn btn-primary" type="button" id="submit" name="submit">Submit</button>
                         <button class="btn btn-secondary" type="button" id="reset" name="reset">Reset</button>
                     </div>
-                    <div class="alert alert-secondary" role="alert" id="tampil" style="display: inline;"></div>
+                    <div id="tampil" style="display: none;">
+                        <div class="mb-2 row">
+                            <label for="kode" class="col-sm-4 col-form-label">Email</label> :
+                            <div class="col-sm-7"> 
+                                <input type="text" class="form-control" id="kode" name="kode">
+                            </div>
+                        </div>
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Nama Lengkap:</th>
+                                    <td id="dt1"></td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Tempat,Tanggal Lahir:</th>
+                                    <td id="dt2"></td>                                  
+                                </tr>
+                                    <th scope="row">Email:</th>
+                                    <td id="dt3"></td>                                  
+                                </tr>
+                                    <th scope="row">Jenis Kelamin:</th>
+                                    <td id="dt4"></td>                                  
+                                </tr>
+                                    <th scope="row">Pekerjaan:</th>
+                                    <td id="dt5"></td>                                  
+                                </tr>
+                                    <th scope="row">Alamat:</th>
+                                    <td id="dt6"></td>                                  
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="col-md-2"></div>
             </div>

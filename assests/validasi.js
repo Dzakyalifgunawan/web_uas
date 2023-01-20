@@ -34,14 +34,16 @@ function clear() {
 
 // Sign Up
 function kodemember() {
-    let a = "MB"
-    let b = "001"
-    let tanggal = new Date();
-    let tglsekarang = tanggal.getFullYear();
-    document.getElementById("tampil").innerHTML = "Kode Member:" + a + tglsekarang + b;
+    
 }
 
 document.getElementById("signup").onload = function() {
+    let a = "MB"
+    let b = "001"
+    let tgl = new Date();
+    let tglsekarang = tgl.getFullYear();
+    document.getElementById("kode").value = a + tglsekarang + b;
+
     let jenis = ["Laki - Laki", "Perempuan"];
     let jenisx = "";
 
@@ -63,18 +65,9 @@ document.getElementById("nama").onkeyup = function() {
     document.getElementById("nama").value = d;
 }
 
-// function pekerjaan() {
-//     let pekerjaan = document.getElementById("form").value;
-//     let tampil = "";
-//     if(pekerjaan == "kuliah") {
-//         tampil = "Kuliah";
-//     }else if(pekerjaan == "kerja") {
-//        tampil = "Kerja";
-//     }else if(pekerjaan == "nganggur") {
-//         tampil = "Nganggur";
-//     }
-//     document.getElementById("pekerjaanx").innerHTML = tampil;
-// }
+document.getElementById("tampil").onload = function() {
+   kodemember();
+}
 
 document.getElementById("submit").onclick = function() {
     let nama = document.getElementById("nama").value;
@@ -82,10 +75,27 @@ document.getElementById("submit").onclick = function() {
     let tanggal = document.getElementById("tanggal").value;
     let email = document.getElementById("email").value;
     let alamat = document.getElementById("alamat").value;
-    let pekerjaan = document.getElementById("pekerjaan").value;
 
-    kodemember();
-    // pekerjaan();
+    if(nama == "" || nama == null) {
+        document.getElementById("tampil").style = "display: none;";
+    }else {
+        document.getElementById("dt1").innerHTML = nama;
+        document.getElementById("tampil").style = "display: inline;";
+    }
+    
+    if(tempat == "" || tempat == null || tanggal == "" || tanggal == null) {
+        document.getElementById("tampil").style = "none";
+    }else {
+        document.getElementById("dt2").innerHTML = tempat + "," + tanggal;
+        document.getElementById("tampil").style = "display: inline;";
+    }
+
+    if(email == "" || email == null) {
+        document.getElementById("tampil").style = "display: none;";
+    }else {
+        document.getElementById("dt3").innerHTML = email;
+        document.getElementById("tampil").style = "display: inline;";
+    }
 
     let h;
 
@@ -93,10 +103,68 @@ document.getElementById("submit").onclick = function() {
         h = "Laki - Laki";
     }else if (document.getElementById("Perempuan").checked == true) {
         h = "Perempuan";  
-    }else{
-        h = alert("Jenis Kelamin Belum diisi");
+    }else {
+        h = "";
     }
 
+    let jns = h;
+    if(jns == "" || jns == null) {
+        document.getElementById("tampil").style = "display: none;";
+    }else {
+        document.getElementById("dt4").innerHTML = jns;
+        document.getElementById("tampil").style = "display: inline;";
+    }
+
+    let pekerjaan = document.getElementById("pekerjaan").value;
+    if(pekerjaan == "kuliah") {
+        document.getElementById("dt5").innerHTML = "Kuliah";
+    }else if(pekerjaan == "kerja") {
+        document.getElementById("dt5").innerHTML = "Kerja";
+    }else if(pekerjaan == "nganggur") {
+        document.getElementById("dt5").innerHTML = "Nganggur";
+    }
+
+    if(pekerjaan == "" || pekerjaan == null) {
+        document.getElementById("tampil").style = "display: none;";
+    }else {
+        document.getElementById("dt5").innerHTML = pekerjaan;
+        document.getElementById("tampil").style = "display: inline;";
+    }
+
+    if(alamat == "" || alamat == null) {
+        document.getElementById("tampil").style = "display: none;";
+    }else {
+        document.getElementById("dt6").innerHTML = alamat;
+        document.getElementById("tampil").style = "display: inline;";
+    }
+
+    document.getElementById("karakter").innerHTML = "Jumlah Karakter < 30 Karakter";
+    let txtalamat = document.getElementById("alamat").value;
+    let jml_karakter = txtalamat.length;
+    if (jml_karakter < 30) {
+        document.getElementById("tampil").style = "display: none;";
+        document.getElementById("karakter").style = "display: inline;";
+    } else {
+        document.getElementById("dt6").innerHTML = txtalamat;
+        document.getElementById("tampil").style = "display: inline;";
+        document.getElementById("karakter").style = "display: none;";
+    }
+
+    validasi(nama, tempat, tanggal, email, h, pekerjaan,alamat);
+}
+
+document.getElementById("reset").onclick = function() {
+    document.getElementById("tampil").style = "display: none;";
+    document.getElementById("nama").value = "";
+    document.getElementById("tempat").value = "";
+    document.getElementById("tanggal").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("alamat").value = "";
+    document.getElementById("pekerjaan").value = "";
+    document.getElementById("jns").value = "";
+}  
+
+function validasi(nama, tempat, tanggal, email, h, pekerjaan, alamat) {
     if(nama == "" || nama == null) {
         alert("Nama Belum Diisi");
     }else if(tempat == "" || tempat == null) {
@@ -104,31 +172,12 @@ document.getElementById("submit").onclick = function() {
     }else if(tanggal == "" || tanggal == null) {
         alert("Tanggal Lahir Belum Diisi");
     }else if(email == "" || email == null) {
-        alert("Email Belum Diisi");
+        alert("Email Belum Diisi");        
+    }else if(h == "" || h == null) {
+        alert("Jenis Kelamin Belum Diisi");        
     }else if(pekerjaan == "" || pekerjaan == null) {
-        alert("Pekerjaan Belum Diisi");
-    }else if(alamat == "" || alamat == null) {
+        alert("Pekerjaan Belum Diisi");        
+    }else if(alamat == "" || alamat == null){
         alert("Alamat Belum Diisi");
     }
-    
-    document.getElementById("tampil").innerHTML = "Nama: " + nama;
-    document.getElementById("tampil").innerHTML = "Tempat,Tanggal Lahir: " + tempat + "," + tanggal;
-    document.getElementById("tampil").innerHTML = "Email: " + email;
-    document.getElementById("tampil").innerHTML = "Alamat: " + alamat;
-    document.getElementById("tampil").innerHTML = "Pekerjaan: " + pekerjaan;
-}
-
-document.getElementById("pekerjaan").onchange = function () {
-    let pk = document.getElementById("pekerjaan").value;
-    let k = "";
-
-    if(pk == "kuliah") {
-        k = "Kuliah mulu dapat kerja kagak"
-    }else if(pk == "kerja") {
-        k = "Bagi Duit Lah Ngab"
-    }else if(pk == "nganggur") {
-        k = "Nganggur Mulu Kapan Sukses"
-    }
-    document.getElementById("komen").value = k;
-    document.getElementById("tampil").innerHTML = "Komen: " + k;
 }
