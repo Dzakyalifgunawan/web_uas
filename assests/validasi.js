@@ -138,19 +138,32 @@ document.getElementById("submit").onclick = function() {
         document.getElementById("tampil").style = "display: inline;";
     }
 
-    document.getElementById("karakter").innerHTML = "Jumlah Karakter < 30 Karakter";
-    let txtalamat = document.getElementById("alamat").value;
-    let jml_karakter = txtalamat.length;
-    if (jml_karakter < 30) {
+    let at =document.getElementById("alamat").value;
+    let pj = at.length;
+    if(pj <= 30) {
+        document.getElementById("karakter").innerHTML = "Karakter < 30 Karakter";
         document.getElementById("tampil").style = "display: none;";
-        document.getElementById("karakter").style = "display: inline;";
-    } else {
-        document.getElementById("dt6").innerHTML = txtalamat;
+    }else {
+        document.getElementById("karakter").innerHTML = "";
         document.getElementById("tampil").style = "display: inline;";
-        document.getElementById("karakter").style = "display: none;";
-    }
+    } 
 
     validasi(nama, tempat, tanggal, email, h, pekerjaan,alamat);
+}
+
+document.getElementById("pekerjaan").onchange = function() {
+    let pk = document.getElementById("pekerjaan").value;
+    let z = "";
+
+
+    if(pk == "kuliah") {
+        z = "Kuliah Kagak Kerja";
+    }else if(pk == "kerja") {
+        z = "Minta Duit Ngab";
+    }else if(pk == "nganggur") {
+        z = "nganggur terus cari kerja sana";
+    }
+    document.getElementById("komen").value = z;
 }
 
 document.getElementById("reset").onclick = function() {
@@ -161,7 +174,7 @@ document.getElementById("reset").onclick = function() {
     document.getElementById("email").value = "";
     document.getElementById("alamat").value = "";
     document.getElementById("pekerjaan").value = "";
-    document.getElementById("jns").value = "";
+    document.getElementById("komen").value = "";
 }  
 
 function validasi(nama, tempat, tanggal, email, h, pekerjaan, alamat) {
