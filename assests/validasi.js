@@ -42,7 +42,7 @@ document.getElementById("signup").onload = function() {
     let b = "001"
     let tgl = new Date();
     let tglsekarang = tgl.getFullYear();
-    document.getElementById("kode").value = a + tglsekarang + b;
+    document.getElementById("kode").innerHTML = a + tglsekarang + b;
 
     let jenis = ["Laki - Laki", "Perempuan"];
     let jenisx = "";
