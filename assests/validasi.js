@@ -75,6 +75,7 @@ document.getElementById("submit").onclick = function() {
     let tanggal = document.getElementById("tanggal").value;
     let email = document.getElementById("email").value;
     let alamat = document.getElementById("alamat").value;
+    let komen = document.getElementById("komen").value;
 
     if(nama == "" || nama == null) {
         document.getElementById("tampil").style = "display: none;";
@@ -147,6 +148,8 @@ document.getElementById("submit").onclick = function() {
         document.getElementById("karakter").innerHTML = "";
         document.getElementById("tampil").style = "display: inline;";
     } 
+
+    document.getElementById("dt7").innerHTML = komen;
 
     validasi(nama, tempat, tanggal, email, h, pekerjaan,alamat);
 }
