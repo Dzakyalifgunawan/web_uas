@@ -33,10 +33,6 @@ function clear() {
 }
 
 // Sign Up
-function kodemember() {
-    
-}
-
 document.getElementById("signup").onload = function() {
     let a = "MB"
     let b = "001"
@@ -48,7 +44,7 @@ document.getElementById("signup").onload = function() {
     let jenisx = "";
 
     for (let i = 0; i<jenis.length; i++){
-        jenisx += '<input class="form-check-input" type="radio" name="jns" id="' + jenis[i] + '" />' + jenis[i] + "</br>";
+        jenisx += '<input class="form-check-input" type="radio" name="jns" id="' + jenis[i] + '" value= "'+jenis[i]+'"><label class="form-check-label" for="flexRadioDefault2">' + jenis[i] + "</label> </br>";
     }
     document.getElementById("jns").innerHTML = jenisx;
 }
@@ -63,10 +59,6 @@ document.getElementById("nama").onkeyup = function() {
     let c = document.getElementById("nama").value;
     let d = c.toUpperCase();
     document.getElementById("nama").value = d;
-}
-
-document.getElementById("tampil").onload = function() {
-   kodemember();
 }
 
 document.getElementById("submit").onclick = function() {
@@ -158,7 +150,6 @@ document.getElementById("pekerjaan").onchange = function() {
     let pk = document.getElementById("pekerjaan").value;
     let z = "";
 
-
     if(pk == "kuliah") {
         z = "Kuliah Kagak Kerja";
     }else if(pk == "kerja") {
@@ -171,13 +162,6 @@ document.getElementById("pekerjaan").onchange = function() {
 
 document.getElementById("reset").onclick = function() {
     document.getElementById("tampil").style = "display: none;";
-    document.getElementById("nama").value = "";
-    document.getElementById("tempat").value = "";
-    document.getElementById("tanggal").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("alamat").value = "";
-    document.getElementById("pekerjaan").value = "";
-    document.getElementById("komen").value = "";
 }  
 
 function validasi(nama, tempat, tanggal, email, h, pekerjaan, alamat) {
