@@ -162,6 +162,7 @@ document.getElementById("pekerjaan").onchange = function() {
 
 document.getElementById("reset").onclick = function() {
     document.getElementById("tampil").style = "display: none;";
+    document.getElementById("karakter").innerHTML = "";
 }  
 
 function validasi(nama, tempat, tanggal, email, h, pekerjaan, alamat) {
